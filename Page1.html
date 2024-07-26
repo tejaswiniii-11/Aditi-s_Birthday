@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a1001;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            position: relative;
+        }
+
+        .navbar {
+            background-color: rgba(177, 147, 26, 0.2);
+            border-radius: 9px;
+            padding: 8px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            margin: 0 10px;
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 8px;
+            border: 2px solid #ffcc00;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #150f0f;
+            color: #ffcc00;
+        }
+
+        .container {
+            text-align: center;
+            padding: 1px 20px 20px 20px; /* Adjust top padding to account for navbar */
+            margin-top: 60px; /* Ensure content starts below navbar */
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #f4b342;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #d1d272;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 2em;
+            color: #f4b342;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .cake-image {
+            width: 400px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .sparkle-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* Allow clicks to pass through */
+            overflow: hidden; /* Hide overflow to keep sparkles contained */
+            z-index: 500; /* Ensure it appears above content */
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Back To Cake?</a>
+        <a href="/Page2.html">Click Me Plz!</a>
+    </div>
+    <div class="container">
+        <h1>🎉 A Start Of New Revolution! 🎉</h1>
+        <h2>Happy 21!</h2>
+        <h3>Dear Aditi,</h3>
+        <p>I am incredibly grateful to have you as my best friend. It’s hard to believe that we've already shared 8 amazing years of friendship, and yet, it feels unbelievable. Over the years and distance we still have managed to keep our bond stronger through it, and I cherish every moment we've spent together.</p>
+        <p>Let's continue to be there for each other, supporting one another through every twist and turn life brings. I look forward to deepening our connection and creating even more wonderful memories together.</p>
+        <p>Here’s to many more years of friendship and closeness! Always wishing For Your Happiness!</p>
+        <p>With love❤️ From Tejaswini😉 </p>
+        <h4>#Tedi❤️</h4>
+        <img src="Photos/pg1.jpeg" alt="Us" class="cake-image">
+    </div>
+    <div class="sparkle-overlay"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numSparkles = 200; // Increased the number of sparkles
+            const container = document.querySelector('.sparkle-overlay');
+            
+            for (let i = 0; i < numSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                container.appendChild(sparkle);
+                
+                // Position the sparkle relative to the document body
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                
+                const animationDuration = Math.random() * 2 + 2 + 's';
+                const animationDelay = Math.random() * 5 + 's';
+                
+                sparkle.style.animation = `sparkle ${animationDuration} linear ${animationDelay} infinite`;
+            }
+        });
+    </script>
+</body>
+</html>

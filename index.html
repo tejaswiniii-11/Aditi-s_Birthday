@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Surprise</title>
+	<link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+	<link href="style.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: #000;
+			color: #fff;
+			font-family: 'Noto Sans TC', sans-serif;
+			overflow-x: hidden;
+		}
+
+		#congratulation-overlay {
+			text-align: center;
+			margin-top: 20px;
+			padding: 20px;
+		}
+
+		#congratulation-text {
+			font-size: 2em;
+			margin-bottom: 10px;
+		}
+
+		nav {
+			position: fixed;
+			top: 0;
+			left: 40;
+			transform: translateX(-50%);
+			text-align: center;
+			margin-top: 10px;
+			padding: 10px;
+			background: rgba(255, 204, 0, 0.2);
+			border-radius: 10px;
+			z-index: 1000;
+		}
+
+		nav a {
+			margin: 0 5px;
+			color: #ffcc00;
+			text-decoration: none;
+			font-size: 1em;
+			padding: 8px;
+			border: 2px solid #ffcc00;
+			border-radius: 5px;
+			transition: background 0.3s, color 0.3s;
+		}
+
+		nav a:hover {
+			background: #ffcc00;
+			color: #000;
+		}
+
+		nav a:active {
+			background: #ffcc00;
+			color: #000;
+		}
+
+		.sparkles {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			background: white;
+			opacity: 0.8;
+			border-radius: 50%;
+			animation: sparkle 1s infinite;
+		}
+
+		@keyframes sparkle {
+			0%, 100% { transform: scale(1); opacity: 0.8; }
+			50% { transform: scale(2); opacity: 0; }
+		}
+
+		.button-container {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.button-container a {
+			display: inline-block;
+			color: #ffcc00;
+			text-decoration: none;
+			font-size: 1.2em;
+			padding: 10px 20px;
+			border: 2px solid #ffcc00;
+			border-radius: 5px;
+			transition: background 0.3s, color 0.3s;
+		}
+
+		.button-container a:hover {
+			background: #ffcc00;
+			color: #000;
+		}
+
+		.button-container a:active {
+			background: #ffcc00;
+			color: #000;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="volume-reminder">
+		<div id="volume-icon">🔊</div>
+		<p>Hey Aditi! Please Press on the above Volume Button!</p>
+	</div>
+	<audio id="happy-birthday-audio">
+		<source src="/happy-birthday.mp3" type="audio/mpeg">
+	</audio>
+	<div id="hold-reminder">
+		<p>Aditi! It's Time To Blow Your Candles! -- Please Long Press</p>
+	</div>
+	<div id="congratulation-overlay">
+		<div id="congratulation-text">Wishing A Very Happy Birthday To My Bestfriend!</div>
+		<nav>
+			<a href="index.html">Back To Cake?</a>
+			<a href="/Page1.html">Click Me 1!</a>
+			<a href="/Page2.html">Click Me 2!</a>
+		</nav>
+	</div>
+	
+	<script>
+		const audio = document.getElementById('happy-birthday-audio');
+		const volumeReminder = document.getElementById('volume-reminder');
+
+		volumeReminder.addEventListener("click", function () {
+			audio.play();
+			volumeReminder.classList.remove('show');
+			setTimeout(function () {
+				volumeReminder.style.display = 'none';
+			}, 1000);
+		})
+
+		window.addEventListener('load', function () {
+			volumeReminder.classList.add('show');
+		});
+
+		function createSparkles() {
+			const sparklesContainer = document.createElement('div');
+			sparklesContainer.style.position = 'fixed';
+			sparklesContainer.style.top = 0;
+			sparklesContainer.style.left = 0;
+			sparklesContainer.style.width = '100%';
+			sparklesContainer.style.height = '100%';
+			sparklesContainer.style.pointerEvents = 'none';
+			document.body.appendChild(sparklesContainer);
+
+			for (let i = 0; i < 100; i++) {
+				const sparkle = document.createElement('div');
+				sparkle.classList.add('sparkles');
+				sparkle.style.left = Math.random() * 100 + 'vw';
+				sparkle.style.top = Math.random() * 100 + 'vh';
+				sparkle.style.animationDuration = Math.random() * 2 + 1 + 's';
+				sparklesContainer.appendChild(sparkle);
+			}
+		}
+
+		createSparkles();
+	</script>
+	<script type="module" src="script.js"></script>
+</body>
+
+</html>

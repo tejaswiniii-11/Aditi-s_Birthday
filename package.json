@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "three": "^0.166.1"
+  },
+  "devDependencies": {
+    "vite": "^5.3.3"
+  },
+  "name": "birthday-cake-three-js",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ascodeasice/three-js-birthday-cake.git",
+  "author": "Leo Wang <ab0988956087@gmail.com>",
+ "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
